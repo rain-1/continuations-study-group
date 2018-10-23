@@ -3,6 +3,12 @@
 ;; A Syntactic Theory of Dynamic Binding - Luc Moreau
 ;; https://link.springer.com/content/pdf/10.1007%2FBFb0030637.pdf
 
+;; So, when one implements a delimited control operator like call-with-prompt, one needs to make
+;; two decisions. Firstly, does the handler run within or outside the prompt? Having the handler
+;; run within the prompt allows an abort inside the handler to return to the same prompt handler,
+;; which is often useful. However it prevents tail calls from the handler, so it is less general.
+;; from the guile manual: https://www.gnu.org/software/guile/manual/html_node/Shift-and-Reset.html#Shift-and-Reset
+
 (require racket/control)
 
 (define x_ed (make-parameter 'x_ed))
