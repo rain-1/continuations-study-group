@@ -7,7 +7,9 @@
 ;; two decisions. Firstly, does the handler run within or outside the prompt? Having the handler
 ;; run within the prompt allows an abort inside the handler to return to the same prompt handler,
 ;; which is often useful. However it prevents tail calls from the handler, so it is less general.
+;;
 ;; from the guile manual: https://www.gnu.org/software/guile/manual/html_node/Shift-and-Reset.html#Shift-and-Reset
+;; see also: http://wingolog.org/archives/2010/02/14/sidelong-glimpses
 
 (require racket/control)
 
